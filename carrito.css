@@ -1,0 +1,115 @@
+/* Agrega esto a tu archivo CSS */
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+/* CSS para el diseño de la tabla del carrito de compras */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.table .img-thumbnail {
+    max-width: 100px;
+    height: auto;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #ff91cd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+.btn-success:hover {
+    background-color: #a9bae9;
+}
+
+p {
+    text-align: right;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .table tbody td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+    }
+
+    .table tbody td:before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    .btn-success {
+        width: 100%;
+        text-align: center;
+    }
+}
+

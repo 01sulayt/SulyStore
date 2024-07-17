@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.shipping-address, .order-summary, .payment-method {
+    flex: 1;
+    min-width: 300px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order-summary {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.order-summary h2,
+.payment-method h2 {
+    background-color: #dcedc8;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.order-summary p,
+.payment-method label {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.payment-method {
+    background-color: #f3e5f5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.payment-method label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 10px;
+}
+
+.btn-success {
+    background-color: #66bb6a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-size: 18px;
+}
+
+.btn-success:hover {
+    background-color: #4caf50;
+}

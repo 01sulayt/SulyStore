@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suly Store - Detalle del Producto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="estilo-general.css">
+    <link rel="stylesheet" href="detalle-producto.css">
+    <!-- Favicon -->
+    <link href="img/Logo.png" rel="icon">
+</head>
+<body>
+<!-- Navegación Superior -->
+<div class="nav-superior">
+    <ul class="redes-sociales">
+        <li><a href="https://www.facebook.com/share/K5eZvtVhjt3jcnMc/?mibextid=qi2Omg" target="_blank"><img src="img/facebook.jpg" alt="Facebook"></a></li>
+        <li><a href="https://www.tiktok.com/@s.imeth?_t=8ny3mpK2q7q&_r=1" target="_blank"><img src="img/TikTok.jpg" alt="TikTok tok"></a></li>
+        <li><a href="https://www.instagram.com/s.imethh?utm_source=qr&igsh=MWwweHhhcnZ2aWd4bg==" target="_blank"><img src="img/Instagram.jpg" alt="Instagram"></a></li>
+    </ul>
+</div>
+<header>
+<!-- Navegación Superior -->
+
+<!-- Menú Principal -->
+<nav>
+<ul class="main-menu">
+    <div class="logo">
+        <img src="img/Logo.png" alt="Logo">
+    </div>  
+    <li><a href="#">Categorías  <b>↴</b></a>
+        <ul class="dropdown">
+            <li><a href="Vestidos.html">Vestidos</a></li>
+            <li><a href="Conjuntos.html">Conjuntos</a></li>
+            <li><a href="Pantalon.html">Pantalones &  Crop top</a></li>
+        </ul>
+    </li>
+    <li><a href="index.html"><b>Inicio</b></a></li>
+    <li><a href="tienda.html">Tienda</a></li>
+    <li><a href="acerca.html">Acerca de la Empresa</a></li>
+    <li><a href="atencion-cliente.html">Atención al Cliente</a></li>
+    <li><a href="carrito.html">Carrito</a></li>
+    <li><a href="pago-envio.html">Pago y Envío</a></li>
+</ul>
+</nav>
+</header>
+
+    <div class="container product-detail">
+        <a href="javascript:history.back()" class="back-button"><i class="fas fa-arrow-left"></i> Regresar</a>
+        <div class="row">
+            <div class="col-md-6 product-image">
+                <img src="img/CONJUNTO2.jpg" alt="CONJUNTO2">
+            </div>
+            <div class="col-md-6 product-info">
+                <h2>FALDA  Y BLUSA </h2>
+                <p>Tela de Poliéster</p>
+                <p>Precio: $<span id="precio">25</span></p>
+                <div class="options">
+                    <div class="option">
+                        <label for="color">Color:</label>
+                        <div class="color-options">
+                            <span class="color-option" style="background-color: rgba(255, 0, 179, 0.267);" data-color="Rosado"></span>
+                            <span class="color-option" style="background-color: rgba(238, 255, 0, 0.377);" data-color="Amarrillo"></span>
+                            <span class="color-option" style="background-color: rgba(16, 106, 141, 0.322);" data-color="Celeste"></span>
+                        </div>
+                    </div>
+                    <div class="option">
+                        <label for="talla">Talla:</label>
+                        <select id="talla">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+                    <div class="option">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="5" value="1">
+                    </div>
+                    <p>Total: $<span id="total">25</span></p>
+                    <button class="btn btn-primary" id="addToCart"><i class="fas fa-cart-plus"></i> Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const precioBase = 25;
+    const cantidadInput = document.getElementById('cantidad');
+    const totalSpan = document.getElementById('total');
+    const addToCartButton = document.getElementById('addToCart');
+    const colorOptions = document.querySelectorAll('.color-option');
+    let selectedColor = 'Red';
+
+    colorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            selectedColor = this.dataset.color;
+            colorOptions.forEach(opt => opt.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+
+    cantidadInput.addEventListener('input', updateTotal);
+
+    addToCartButton.addEventListener('click', function() {
+        const cantidad = cantidadInput.value;
+        const talla = document.getElementById('talla').value;
+        const total = precioBase * cantidad;
+
+        const producto = {
+            nombre: 'CONJUNTO2', // Aquí deberías ajustar el nombre del producto según corresponda
+            color: selectedColor,
+            talla: talla,
+            cantidad: cantidad,
+            precioUnitario: precioBase,
+            total: total
+        };
+
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carrito.push(producto);
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        window.location.href = 'carrito.html';
+    });
+
+    function updateTotal() {
+        const cantidad = parseInt(cantidadInput.value);
+        const total = precioBase * cantidad;
+        totalSpan.textContent = total;
+    }
+});
+</script>
+
+<!-- Pie de Página -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3><b>PONERSE EN CONTACTO</b></h3>
+            <p><i class="fas fa-map-marker-alt"></i>    La Gran Estación, San  Miguelito, </p>
+            <p><i class="fas fa-envelope"></i> sulystore01@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +507 6884-3958</p>
+        </div>
+        <div class="footer-column">
+            <h3> <b>COMPRA RÁPIDA</b></h3>
+            <ul>
+            
+                <li><a href="tienda.html">Nuestra tienda</a></li>
+                <li><a href="carrito.html">Carro de la compra</a></li>
+                <li><a href="pago-envio.html">Verificar</a></li>
+                <li><a href="atencion-cliente.html">Contáctenos</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3><b>MI CUENTA</b></h3>
+            <ul>
+                <li><a href="atencion-cliente.html">Atencion cliente</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3><b>BOLETÍN INFORMATIVO</b></h3>
+            <p>Para que este informado  de nuevas mercancia llegada a la tienda</p>
+            <form action="#">
+                <input type="email" placeholder="Su dirección de correo electrónico">
+                <button type="submit">Inscribirse</button>
+            </form>
+            <h3><b>SÍGANOS</b></h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/K5eZvtVhjt3jcnMc/?mibextid=qi2Omg"><img src="img/facebook.jpg "  alt="facebook"></i></a>
+                <a href="https://www.tiktok.com/@s.imeth?_t=8ny3mpK2q7q&_r=1"><img src="img/TikTok.jpg "  alt="TikTok"></i></a>
+                <a href="https://www.instagram.com/s.imethh?utm_source=qr&igsh=MWwweHhhcnZ2aWd4bg=="><img src="img/Instagram.jpg "  alt="instagram"></i></a>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p> Diseñado por <b>Sulay Torrero</b></p>
+        <div class="payment-methods">
+            <img src="img/Visa.jpg" alt="Visa">
+            <img src="img/MASTER YCLAVE.jpg" alt="Mastercard">
+            <img src="img/YAPPY  Y ACH.jpg" alt="Paypal">
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+   
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,284 @@
+
+/* Aplica la imagen de fondo al cuerpo de la página */
+body {
+    background-color: #b9dfeb33; /* Fondo claro como respaldo */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Asegúrate de que el header tenga un fondo sólido para que no se mezcle con la imagen de fondo */
+header {
+    background-color: #e93f3f;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(199, 228, 248, 0.562);
+}
+
+
+/* Aplica la imagen de fondo solo al contenido principal */
+.main-content {
+    background-image: url('imgg'); /* Reemplaza con la ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(245, 215, 215, 0.932);
+}
+
+
+/* Asegúrate de que el contenido tenga un fondo blanco o semitransparente para que el texto sea legible */
+.main-content, .product-detail {
+    background-color: rgba(193, 210, 248, 0.116); /* Fondo blanco semitransparente */
+    padding: 10px;
+    border-radius: 10px; /* Bordes redondeados para un diseño más limpio */
+    box-shadow: 0 0 10px rgb(219, 218, 219); /* Sombra suave para dar profundidad */
+}
+
+/* Ajusta los estilos según tus necesidades */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(8, 7, 8, 0.829);
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    background-color: rgba(250, 183, 228, 0.37);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-item p {
+    margin-top: 10px;
+}
+
+
+/* Navegación Superior */
+.nav-superior {
+    background-color: #b9dfeb62;
+    padding: 10px;
+    text-align: right;
+}
+
+.redes-sociales {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Utiliza flex para alinear en fila */
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.redes-sociales li {
+    position: relative;
+    margin-left: 10px;
+}
+
+.redes-sociales li::after {
+    content: '|';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+.redes-sociales li:last-child::after {
+    content: '';
+}
+
+.redes-sociales img {
+    width: 24px; /* Ajusta el tamaño de los iconos */
+    height: 24px;
+}
+
+/* Menú Principal */
+/* Estilos para el header y el menú */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #fce4ec;
+    padding: 10px 20px;
+}
+
+.logo img {
+    max-height: 100px;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav ul.main-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul.main-menu > li {
+    position: relative;
+}
+
+nav ul.main-menu > li > a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 40px 40px;
+    display: block;
+}
+
+nav ul.main-menu > li > a:hover {
+    background-color: #dbcadd;
+    border-radius: 5px;
+}
+
+nav ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e0f7fa;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+nav ul.dropdown li {
+    width: 200px;
+}
+
+nav ul.dropdown li a {
+    padding: 10px;
+}
+
+nav ul.main-menu > li:hover .dropdown {
+    display: block;
+}
+
+header .logo {
+    margin-right: 20px;
+}
+
+header nav ul.main-menu li:first-child a {
+    color: #000000;
+}
+
+
+
+
+
+
+
+/* Estilos para el pie de página */
+footer {
+    background-color:#b9dfeb62 ; /* Fondo rosa */
+    color: #343a40; /* Texto negro */
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    color: #030303; /* Texto negro */
+}
+
+.footer-column p, .footer-column ul, .footer-column form {
+    margin-bottom: 20px;
+    color: #343a40; /* Texto negro */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #171818; /* Texto negro */
+    text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-column form {
+    display: flex;
+}
+
+.footer-column input[type="email"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: fce4ec;/* Fondo del campo de entrada */
+    color: #343a40; /* Texto del campo de entrada */
+}
+
+.footer-column button {
+    padding: 10px;
+    border: none;
+    background-color: #fce4ec; /* Fondo blanco */
+    color: #343a40; /* Texto del botón */
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.footer-column button:hover {
+    background-color: #e0a800;
+}
+
+.social-icons a {
+    color: #114880; /* Color de los íconos */
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #343a40; /* Texto negro */
+}
+
+.payment-methods img {
+    max-height: 30px;
+    margin-left: 10px;
+}

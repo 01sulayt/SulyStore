@@ -1,0 +1,100 @@
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.form-container {
+    width: 60%;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    color: grey;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn-enviar {
+    background-color: pink;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-enviar:hover {
+    background-color: #ff69b4;
+}
+
+.contact-info {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.contact-detail i {
+    margin-right: 10px;
+}
+
+.contact-detail a,
+.contact-detail span {
+    color: #000;
+    text-decoration: none;
+}
+
+.icon-ubicacion:before {
+    content: url('img/ubicacion.jpg'); /* Reemplaza con el ícono de ubicación */
+}
+
+.icon-correo:before {
+    content: url('img/mail.jpg'); /* Reemplaza con el ícono de correo */
+}
+
+.icon-telefono:before {
+    content: url('img/Telefono.jpg'); /* Reemplaza con el ícono de teléfono */
+}
+
+iframe {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 20px;
+}

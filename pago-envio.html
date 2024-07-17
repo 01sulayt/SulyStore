@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago y Envío</title>
+    <link rel="stylesheet" href="estilo-general.css">
+    <link rel="stylesheet" href="pago-envio.css">
+</head>
+<body>
+    <!-- Navegación Superior -->
+   <div class="nav-superior">
+    <ul class="redes-sociales">
+        <li><a href="https://www.facebook.com/share/K5eZvtVhjt3jcnMc/?mibextid=qi2Omg" target="_blank"><img src="img/facebook.jpg" alt="Facebook"></a></li>
+        <li><a href="https://www.tiktok.com/@s.imeth?_t=8ny3mpK2q7q&_r=1" target="_blank"><img src="img/TikTok.jpg" alt="TikTok tok"></a></li>
+        <li><a href="https://www.instagram.com/s.imethh?utm_source=qr&igsh=MWwweHhhcnZ2aWd4bg==" target="_blank"><img src="img/Instagram.jpg" alt="Instagram"></a></li>
+    </ul>
+</div>
+
+<header>
+<!-- Menú Principal -->
+<nav>
+     
+    <ul class="main-menu">
+        <div class="logo">
+            <img src="img/Logo.png" alt="Logo">
+        </div>  
+        
+        <li><a href="index.html"><b>Inicio</b></a></li>
+        <li><a href="tienda.html"> Tienda</a></li>
+        <li><a href="acerca.html"> Acerca de la Empresa</a></li>
+        <li><a href="atencion-cliente.html">Atención al Cliente</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+        <li><a href="pago-envio.html">Pago y Envío</a></li>
+    </ul>
+</nav>
+
+</header>
+    <div class="container">
+        <form>
+            <div class="shipping-address">
+                <h2>Dirección de Envío</h2>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Número de Celular</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion1">Dirección 1</label>
+                    <input type="text" id="direccion1" name="direccion1" required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion2">Dirección 2</label>
+                    <input type="text" id="direccion2" name="direccion2">
+                </div>
+                <div class="form-group">
+                    <label for="provincia">Provincia</label>
+                    <select id="provincia" name="provincia" required>
+                        <option value="Provincia de Panamá">Provincia de Panamá</option>
+                        <!-- Agrega más opciones aquí -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                </div>
+                <div class="form-group">
+                    <label for="distrito">Distrito</label>
+                    <input type="text" id="distrito" name="distrito" required>
+                </div>
+                <div class="form-group">
+                    <label for="corregimiento">Corregimiento</label>
+                    <input type="text" id="corregimiento" name="corregimiento" required>
+                </div>
+            </div>
+            
+            <div class="order-summary">
+                <h2>Total del pedido</h2>
+                <div id="order-items">
+                    <!-- Aquí se insertarán los productos del carrito -->
+                </div>
+                <p>Subtotal: $<span id="subtotal">0</span></p>
+                <p>Envío: $<span id="envio">5.00</span></p>
+                <p>Total: $<span id="total">0</span></p>
+            </div>
+            
+            <div class="payment-method">
+                <h2>Pago</h2>
+                <label>
+                    <input type="radio" name="metodo_pago" value="Efectivo" required> Efectivo
+                </label>
+                <label>
+                    <input type="radio" name="metodo_pago" value="Verificación directa" required> Verificación directa
+                </label>
+                <label>
+                    <input type="radio" name="metodo_pago" value="Transferencia bancaria" required> Transferencia bancaria
+                </label>
+                <button type="submit" class="btn btn-success">Realizar pedido</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Código JS para cargar productos del carrito
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderItemsContainer = document.getElementById('order-items');
+            const subtotalSpan = document.getElementById('subtotal');
+            const totalSpan = document.getElementById('total');
+            const envio = 5.00;
+
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let subtotal = 0;
+
+            carrito.forEach(producto => {
+                const item = document.createElement('div');
+                item.classList.add('order-item');
+                item.innerHTML = `
+                    <p>${producto.nombre}: $${producto.total}</p>
+                `;
+                orderItemsContainer.appendChild(item);
+                subtotal += producto.total;
+            });
+
+            subtotalSpan.textContent = subtotal.toFixed(2);
+            totalSpan.textContent = (subtotal + envio).toFixed(2);
+        });
+    </script>
+   
+  <!-- Pie de Página -->
+  <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3><b>PONERSE EN CONTACTO</b></h3>
+            <p><i class="fas fa-map-marker-alt"></i>    La Gran Estación, San  Miguelito, </p>
+            <p><i class="fas fa-envelope"></i> sulystore01@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +507 6884-3958</p>
+        </div>
+        <div class="footer-column">
+            <h3> <b>COMPRA RÁPIDA</b></h3>
+            <ul>
+            
+                <li><a href="tienda.html">Nuestra tienda</a></li>
+                <li><a href="carrito.html">Carro de la compra</a></li>
+                <li><a href="pago-envio.html">Verificar</a></li>
+                <li><a href="atencion-cliente.html">Contáctenos</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3><b>MI CUENTA</b></h3>
+            <ul>
+                <li><a href="atencion-cliente.html">Atencion cliente</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3><b>BOLETÍN INFORMATIVO</b></h3>
+            <p>Para que este informado  de nuevas mercancia llegada a la tienda</p>
+            <form action="#">
+                <input type="email" placeholder="Su dirección de correo electrónico">
+                <button type="submit">Inscribirse</button>
+            </form>
+            <h3><b>SÍGANOS</b></h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/K5eZvtVhjt3jcnMc/?mibextid=qi2Omg"><img src="img/facebook.jpg "  alt="facebook"></i></a>
+                <a href="https://www.tiktok.com/@s.imeth?_t=8ny3mpK2q7q&_r=1"><img src="img/TikTok.jpg "  alt="TikTok"></i></a>
+                <a href="https://www.instagram.com/s.imethh?utm_source=qr&igsh=MWwweHhhcnZ2aWd4bg=="><img src="img/Instagram.jpg "  alt="instagram"></i></a>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p> Diseñado por <b>Sulay Torrero</b></p>
+        <div class="payment-methods">
+            <img src="img/Visa.jpg" alt="Visa">
+            <img src="img/MASTER YCLAVE.jpg" alt="Mastercard">
+            <img src="img/YAPPY  Y ACH.jpg" alt="Paypal">
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

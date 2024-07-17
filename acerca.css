@@ -1,0 +1,43 @@
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.text-content {
+    width: 100%;
+}
+
+.image-content {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empresa-img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+}
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+}
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
